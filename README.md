@@ -1,6 +1,6 @@
 # VTranslitCli
 
-A command line interface for (vtranslit)[https://github.com/vipranarayan14/vtranslit].
+A command line interface for [vtranslit](https://github.com/vipranarayan14/vtranslit).
 
 ## Installation
 

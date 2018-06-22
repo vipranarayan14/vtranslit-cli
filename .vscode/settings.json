@@ -1,0 +1,10 @@
+{
+  "eslint.enable": true,
+  "window.zoomLevel": 0,
+  "files.autoSave": "afterDelay",
+  "editor.minimap.enabled": false,
+  "files.trimFinalNewlines": true,
+  "files.insertFinalNewline": true,
+  "editor.tabSize": 2,
+  "npm.enableScriptExplorer": true
+}

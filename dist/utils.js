@@ -1,0 +1,2 @@
+'use strict';Object.defineProperty(exports,'__esModule',{value:true});exports.readFile=exports.writeFile=exports.print=undefined;var _fs=require('fs');var _fs2=_interopRequireDefault(_fs);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj}}var print=exports.print=console.log;// eslint-disable-line no-console
+var writeFile=exports.writeFile=function writeFile(path,content,cb){return _fs2.default.writeFile(path,content,'utf8',cb)};var readFile=exports.readFile=function readFile(path,cb){return _fs2.default.readFile(path,'utf8',cb)};

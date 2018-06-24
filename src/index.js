@@ -9,7 +9,7 @@ const options = $yargs
     .options({
       'inputString': {
         alias: 's',
-        description: 'The string to be transliterated',
+        description: 'The string to be transliterated.',
         type: 'string'
       }
     })
@@ -55,7 +55,7 @@ const options = $yargs
 
     outputFilePath: {
       alias: 'o',
-      description: 'The path to the file to be transliterated',
+      description: 'The path to the file to be transliterated.',
       global: true,
       type: 'string'
     },
@@ -64,8 +64,8 @@ const options = $yargs
       alias: 't',
       default: 'Deva',
       demand: 'Specify Scheme to transliterate to. \n' +
-        'Use "vtranslit list" to know the list available schemes for transliteration.',
-      describe: 'Scheme to transliterate to',
+      'Use "vtranslit list" to know the list available schemes for transliteration.',
+      describe: 'Scheme to transliterate to.',
       global: true,
       type: 'string'
     },
@@ -84,7 +84,7 @@ const options = $yargs
   })
 
   .alias('v', 'version')
-  .describe('v', 'show version information')
+  .describe('v', 'Show version information')
 
   .help('h')
   .alias('h', 'help')

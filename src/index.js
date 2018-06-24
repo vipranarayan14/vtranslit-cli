@@ -1,4 +1,4 @@
-import VTranslitCli from './vtranslit-cli';
+import { handleCommand } from './handle-command';
 
 const options = require('yargs')
   .usage('Usage: $0 <command> [options]')
@@ -43,7 +43,6 @@ const options = require('yargs')
 
     fromScheme: {
       alias: 'f',
-      // choices: ['Itrn', 'Deva', 'Knda', 'Taml', 'Telu'],
       default: 'Itrn',
       demand: 'Specify Scheme to transliterate from',
       describe: 'Scheme to transliterate from',
@@ -60,12 +59,22 @@ const options = require('yargs')
 
     toScheme: {
       alias: 't',
-      // choices: ['Itrn', 'Deva', 'Knda', 'Taml', 'Telu', 'Multi'],
       default: 'Deva',
       demand: 'Specify Scheme to transliterate to',
       describe: 'Scheme to transliterate to',
       global: true,
       type: 'string'
+    },
+
+    translitMode: {
+      alias: 'm',
+      default: 0,
+      describe: 'The mode to translit when the string is marked with "#{" and "}#". \n' +
+        '0 = Toggling Mode is off i.e. The whole is translit\'ed. \n' +
+        '1 = Only the string outside of the markers are translit\'ed. \n' +
+        '2 = Only the string inside of the markers are translit\'ed.',
+      global: true,
+      type: 'number'
     }
 
   })
@@ -78,36 +87,4 @@ const options = require('yargs')
 
   .argv;
 
-const invalidCommandError = command => () => {
-
-  throw new Error(`Unknown command: "${command}". Please refer the help (--help) for vaild commands.`);
-
-};
-
-(command => ({
-
-  'file': () => {
-
-    const vtranslitCli = new VTranslitCli(options.fromScheme, options.toScheme);
-
-    vtranslitCli.file(options.inputFilePath, options.outputFilePath);
-
-  },
-
-  'find-scheme': () => {
-
-    const vtranslitCli = new VTranslitCli(options.fromScheme, options.toScheme);
-
-    vtranslitCli.find(options.inputString || options._[1]);
-
-  },
-
-  'string': () => {
-
-    const vtranslitCli = new VTranslitCli(options.fromScheme, options.toScheme);
-
-    vtranslitCli.string(options.inputString || options._[1], options.outputFilePath);
-
-  }
-
-}[command] || invalidCommandError(command)))(options._[0])();
+handleCommand(options._[0])(options)();

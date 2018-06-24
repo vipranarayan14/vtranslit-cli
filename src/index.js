@@ -1,6 +1,8 @@
+import $yargs from 'yargs';
+
 import { handleCommand } from './handle-command';
 
-const options = require('yargs')
+const options = $yargs
   .usage('Usage: $0 <command> [options]')
   .command('string', 'input a string', yargs => yargs
     .usage('Usage: $0 string [-s] <string> [options]')
@@ -45,7 +47,8 @@ const options = require('yargs')
       alias: 'f',
       default: 'Itrn',
       demand: 'Specify Scheme to transliterate from',
-      describe: 'Scheme to transliterate from',
+      describe: 'Scheme to transliterate from. \n' +
+        'Use "vtranslit list" to know the list available schemes for transliteration.',
       global: true,
       type: 'string'
     },
@@ -60,7 +63,8 @@ const options = require('yargs')
     toScheme: {
       alias: 't',
       default: 'Deva',
-      demand: 'Specify Scheme to transliterate to',
+      demand: 'Specify Scheme to transliterate to. \n' +
+        'Use "vtranslit list" to know the list available schemes for transliteration.',
       describe: 'Scheme to transliterate to',
       global: true,
       type: 'string'

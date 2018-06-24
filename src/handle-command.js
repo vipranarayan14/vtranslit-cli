@@ -5,24 +5,35 @@ const invalidCommandError = command => () => {
   const referHelpMsg = 'Refer the help (--help) for vaild commands.';
 
   console.error( // eslint-disable-line no-console
-    (command) ? `Unknown command: "${command}". ${referHelpMsg}` : `Specify a command. ${referHelpMsg}`
+    (command) ? (
+      `Unknown command: "${command}". ${referHelpMsg}`
+    ) : (
+      `Specify a command. ${referHelpMsg}`
+    )
   );
 
 };
 
-export const handleCommand = command => options => ({
+export const handleCommand = command => ({
+  fromScheme,
+  toScheme,
+  translitMode,
+  inputFilePath,
+  outputFilePath,
+  ...options
+}) => ({
 
   'file': () => {
 
-    const vtranslitCli = new VTranslitCli(options.fromScheme, options.toScheme);
+    const vtranslitCli = new VTranslitCli(fromScheme, toScheme, translitMode);
 
-    vtranslitCli.file(options.inputFilePath, options.outputFilePath);
+    vtranslitCli.file(inputFilePath, outputFilePath);
 
   },
 
   'find-scheme': () => {
 
-    const vtranslitCli = new VTranslitCli(options.fromScheme, options.toScheme);
+    const vtranslitCli = new VTranslitCli(fromScheme, toScheme, translitMode);
 
     vtranslitCli.find(options.inputString || options._[1]);
 
@@ -30,9 +41,9 @@ export const handleCommand = command => options => ({
 
   'string': () => {
 
-    const vtranslitCli = new VTranslitCli(options.fromScheme, options.toScheme);
+    const vtranslitCli = new VTranslitCli(fromScheme, toScheme, translitMode);
 
-    vtranslitCli.string(options.inputString || options._[1], options.outputFilePath);
+    vtranslitCli.string(options.inputString || options._[1], outputFilePath);
 
   }
 

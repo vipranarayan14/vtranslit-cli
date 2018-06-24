@@ -11,7 +11,7 @@ import { writeOutput } from './write-output';
 
 export default class VTranslitCli {
 
-  constructor(fromScheme, toScheme) {
+  constructor(fromScheme, toScheme, translitMode) {
 
     this.vtranslit = vTranslit([
       vTranslitSchemeDeva,
@@ -21,7 +21,9 @@ export default class VTranslitCli {
       vTranslitSchemeTelu
     ]);
 
-    this.vt = this.vtranslit.init(fromScheme, toScheme);
+    this.vt = this.vtranslit.init(fromScheme, toScheme, {
+      translitMode
+    });
 
   }
 

@@ -1,6 +1,6 @@
 {
   "name": "vtranslit-cli",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A command line interface for vtranslit.",
   "author": "Prasanna Venkatesh T S <vipranarayan14@gmail.com>",
   "license": "MIT",

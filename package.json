@@ -26,6 +26,7 @@
   "dependencies": {
     "vtranslit": "^4.4.0",
     "vtranslit-scheme-deva": "^0.4.0",
+    "vtranslit-scheme-gran": "^0.1.1",
     "vtranslit-scheme-itrn": "^0.3.0",
     "vtranslit-scheme-knda": "^0.3.0",
     "vtranslit-scheme-taml": "^0.3.0",

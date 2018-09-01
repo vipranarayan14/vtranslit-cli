@@ -2,6 +2,7 @@ import { print, readFile } from './utils';
 
 import { vTranslit } from 'vtranslit';
 import { vTranslitSchemeDeva } from 'vtranslit-scheme-deva';
+import { vTranslitSchemeGran } from 'vtranslit-scheme-gran';
 import { vTranslitSchemeItrn } from 'vtranslit-scheme-itrn';
 import { vTranslitSchemeKnda } from 'vtranslit-scheme-knda';
 import { vTranslitSchemeTaml } from 'vtranslit-scheme-taml';
@@ -15,6 +16,7 @@ export default class VTranslitCli {
 
     this.vtranslit = vTranslit([
       vTranslitSchemeDeva,
+      vTranslitSchemeGran,
       vTranslitSchemeItrn,
       vTranslitSchemeKnda,
       vTranslitSchemeTaml,
